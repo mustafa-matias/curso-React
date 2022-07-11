@@ -1,21 +1,25 @@
-import ItemCount from "./ItemCount";
-import Swal from 'sweetalert2';
+import React, {useState, useEffect} from "react";
+import ItemList from "./ItemList";
+import products from "./products.json";
 
 const ItemListConteiner = ({greeting}) =>{
-    return (<div className="ItemListConteiner">
+
+const [loading, setLoading] = useState(true);
+
+useEffect(()=>{
+    setTimeout(()=>{
+        setLoading(false);
+    },2000)
+},[])
+
+
+    return (
+    <div className="ItemListConteiner">
         {greeting}
-        <ItemCount stock={5} initial={1} onAdd={(n)=>{
-            Swal.fire({
-            position: 'top-end',
-            background: '#323232',
-            color: '#fff',            
-            icon: 'info',
-            title: n,
-            showConfirmButton: false,
-            timer: 1500
-            })
-        }}/>
+        {loading ?(
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            ):(<ItemList items={products}/>)
+        }
     </div>);
 }
-
 export default ItemListConteiner

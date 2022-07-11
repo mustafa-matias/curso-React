@@ -10,8 +10,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
     return (
-        <div className="card bgNav m-auto ">
-            <div className="card2 text-light ">
+            <div>
                 <div>
                     <button onClick={decrementar} className="btnCount"> - </button>
                     <span className='fw-bold fs-4'>{count}</span>
@@ -27,7 +26,6 @@ const ItemCount = ({stock, initial, onAdd}) => {
                     }}
                     className="btnCarrito" ><span>Agregar</span></button>
                 </div>
-            </div>
         </div>);
 }
 
