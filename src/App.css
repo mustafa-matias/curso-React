@@ -284,3 +284,40 @@ p{
     transform: rotate(360deg);
   }
 }
+
+.links{
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 20px;
+}
+
+.links:hover{
+  color: rgb(23, 214, 55);
+}
+
+.gridDetalle{
+  display: grid;
+  grid-template-areas: 
+  "imgDetalle titleDetalle"
+  "imgDetalle descripcionDetalle"
+  "imgDetalle descripcionDetalle"
+  "imgDetalle precioDetalle";
+  grid-template-columns: repeat(2,1fr);
+  align-items: center;
+  margin: 20px;
+}
+
+.imgDetalle{
+  grid-area: imgDetalle;
+  width: 100%;
+}
+
+.titleDetalle{
+  grid-area: titleDetalle;
+}
+.descripcionDetalle{
+  grid-area: descripcionDetalle;
+}
+.precioDetalle{
+  grid-area: precioDetalle;
+}

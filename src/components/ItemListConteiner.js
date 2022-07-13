@@ -17,8 +17,8 @@ useEffect(()=>{
     <div className="ItemListConteiner">
         {greeting}
         {loading ?(
-            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-            ):(<ItemList items={products}/>)
+            <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            ):(<ItemList items={products}/> )
         }
     </div>);
 }

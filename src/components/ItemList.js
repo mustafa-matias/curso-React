@@ -11,8 +11,8 @@ const ItemList = ({items}) => {
                     price={el.price}
                     image={el.image}
                     key={i}
-                />
-            ))} 
+                    />
+                ))}
         </div>
   );
 };

@@ -1,0 +1,30 @@
+import React, {useState, useEffect} from "react";
+import ItemDetail from "./ItemDetail";
+import products from "./products.json";
+
+const producto1 = products[0];
+
+const ItemDetailContainer = () => {
+
+    const [productoElegido, setProductoElegido] = useState([]);
+
+    useEffect(()=>{
+        const getItem = new Promise (function(resolve){
+            setTimeout(()=>{
+                resolve(producto1);
+            },2000)
+        })
+        getItem.then(function(producto){
+                setProductoElegido(producto);
+            })    
+        })
+        return (
+            <ItemDetail item={productoElegido}/>
+        )
+}
+
+
+
+
+
+export default ItemDetailContainer
