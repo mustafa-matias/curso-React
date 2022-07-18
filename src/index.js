@@ -2,12 +2,32 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import {BrowserRouter,Route,Routes} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import ItemListConteiner from './components/ItemListConteiner';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemListConteinerJewelery from './components/ItemListConteinerJewelery.js';
+import ItemListConteinerElectronics from './components/ItemListConteinerElectronics.js';
+import ItemListConteinerWomensClothing from './components/ItemListConteinerWomensClothing.js';
+import ItemListConteinerMensClothing from './components/ItemListConteinerMensClothing.js';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App/>}>
+          <Route index element={<ItemListConteiner greeting="BIENVENIDO STORE"/>}/>
+          <Route path='/category/womensclothing' element={<ItemListConteinerWomensClothing greeting="Women's Clothing"/>}/>
+          <Route path='/category/mensclothing' element={<ItemListConteinerMensClothing greeting="Men's Clothing"/>}/>
+          <Route path='/category/electronics' element={<ItemListConteinerElectronics greeting="Electronics"/>}/>
+          <Route path='/category/jewelery' element={<ItemListConteinerJewelery greeting="Jewelery"/>}/>
+          <Route path='/item/:id' element={<ItemDetailContainer />}/>
+          <Route path='*' element={<ItemListConteiner greeting="Bienvenido a tu Store"/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

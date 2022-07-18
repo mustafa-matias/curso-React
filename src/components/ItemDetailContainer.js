@@ -1,33 +1,30 @@
 import React, {useState, useEffect} from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import products from "./products.json";
-
-const producto1 = products[0];
 
 const ItemDetailContainer = () => {
+
+    let params = useParams();
     
-    const [productoElegido, setProductoElegido] = useState([]);
+    const [productoElegido, setProductoElegido] = useState();
     const [loading, setLoading] = useState(true);
+    const [err, setErr] = useState();
     
     useEffect(()=>{
-        const getItem = new Promise (function(resolve){
-            setTimeout(()=>{
-                resolve(producto1);
-            },2000)
-        })
-        getItem.then(function(producto){
-                setProductoElegido(producto);
-            })
-            setTimeout(()=>{
-                setLoading(false);
-            },2000)
-                
-        })
-
+        setTimeout(()=>{
+            fetch(`https://fakestoreapi.com/products/${params.id}`)
+                .then(res => res.json())
+                .then(json => setProductoElegido(json))
+                .catch((err)=>{
+                    setErr("Ocurrio un error");
+                })
+            setLoading(false);
+        },2000)},[params.id])
+    
         return (
             loading ?(
-                <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-                    ):(<ItemDetail item={productoElegido}/>)
+                <div className="lds-roller vh-100"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    ):(productoElegido && <ItemDetail item={productoElegido}/>)
                     )
 }       
 

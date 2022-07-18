@@ -1,20 +1,33 @@
+import ItemCount from './ItemCount';
+import Swal from 'sweetalert2';
+
 const ItemDetail = ( {item} ) => {
-  return (
-<div className="card bgNav">
-    <div className="card2 text-light ">
-        <div className="gridDetalle">
-            <div className="imgDetalle">
-                <img src={item.image} alt={item.title} width="45%"/>
+
+function onAddAlert(n){
+    Swal.fire({
+        position: 'top-end',
+        background: '#323232',
+        color: '#fff',            
+        icon: 'info',
+        title: n,
+        showConfirmButton: false,
+        timer: 1500
+        })
+    }
+
+return (
+    <div className="contenedorDetalle  ">
+            <div className="contenedorImgDetalle">
+                <img className='imgDetalle' src={item.image} alt={item.title}/>
             </div>
-            <div className="titleDetalle">
-                <p> {item.id} </p>
-                <h3> {item.title} </h3>
+            <div className="itemDetalle text-dark">
+                <h3 className='fs-1'> {item.title} </h3>
+                <p className="descripcionDetalle fs-4">{item.description}</p>
+                <p className="precioDetalle fs-2"> ${item.price} </p>
+                <ItemCount stock={5} initial={1} onAdd={onAddAlert}/>
             </div>
-            <p className="descripcionDetalle">{item.description}</p>
-            <p className="precioDetalle"> {item.price} </p>
-        </div>
-    </div>
 </div>
+
 )
 }
 

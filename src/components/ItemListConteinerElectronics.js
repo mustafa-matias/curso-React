@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import ItemList from "./ItemList";
 
-const ItemListConteiner = ({greeting}) =>{
+const ItemListConteinerElectronics = ({greeting}) =>{
 
 const [loading, setLoading] = useState(true);
 const [products,setProducts]=useState();
@@ -9,7 +9,7 @@ const [err, setErr] = useState();
 
 useEffect(()=>{
     setTimeout(()=>{
-        fetch('https://fakestoreapi.com/products')
+        fetch('https://fakestoreapi.com/products/category/electronics')
             .then(res => res.json())
             .then(json => setProducts(json))
             .catch((error)=>{
@@ -17,6 +17,7 @@ useEffect(()=>{
             })
         setLoading(false);
     },2000)},[])
+
     
     return (
     <div className="ItemListConteiner">
@@ -29,4 +30,4 @@ useEffect(()=>{
         }
     </div>);
 }
-export default ItemListConteiner
+export default ItemListConteinerElectronics;

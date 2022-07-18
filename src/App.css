@@ -38,7 +38,7 @@
 }
 
 p{
-  font-size: 15px;
+  font-size: 20px;
 }
 .cardWidget{
   background: linear-gradient(-45deg, #3f00b5, #9f69fe, #27c8b7, #3f00b5);
@@ -80,7 +80,8 @@ p{
 }
 
 .ItemListConteiner{
-  color: #5a1aa3;
+  min-height: 750px;
+  color: #070707;
   padding: 5px;
   font-size: 20px;
   font-weight: bold;
@@ -95,42 +96,73 @@ p{
   border-bottom: 1px solid white;
 }
 
-.card {
-  height: 500px;
-  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
-  border-radius: 20px;
-  transition: all .3s;
-  margin: 20px;
+.contenedorCard{
+  border: 1px rgb(69, 64, 64) solid;
 }
 
-.card2 {
+.contenedorCard:hover{
+  transform: scale(1.02);
+  transition: all ease 1s;
+}
+.contenedorImgCard{
+  height: 250px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+}
+
+.contenedorCuerpoCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: linear-gradient(white 5%, rgb(68, 67, 67));
+
+}
+
+.itemList{
   width: 100%;
-  height: 100%;
-  background-color: #1a1a1a;
-  border-radius: 20px;
-  transition: all .2s;
+  display: grid;  
+  grid-template-columns: repeat(5,1fr);
+  margin: auto;
 }
 
-.card2:hover {
-  transform: scale(0.98);
-  border-radius: 20px;
+.contenedorDetalle{
+  background-color: white;
+  height: 750px;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0px;
 }
 
-.card:hover {
-  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+.contenedorImgDetalle{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.imgDetalle{
+  width: 400px;
+}
+
+.itemDetalle{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 60px;
 }
 
 .btnCarrito{
   display: inline-block;
-  border-radius: 7px;
+  border-radius: 5px;
   border: none;
-  background: #13cb41;
+  background: #0e8b2d;
   color: white;
   font-weight: bold;
   font-family: inherit;
   text-align: center;
-  font-size: 13px;
-  box-shadow: 0px 14px 56px -11px #1875FF;
+  font-size: 15px;
   width: 10em;
   padding: 1em;
   transition: all 0.4s;
@@ -161,30 +193,31 @@ p{
   opacity: 4;
   right: 0;
  }
-.btnCount {
-  --green: #1BFD9C;
+.btnCountIncremento {
+  min-width: 40px;
+  --green: #0e8b2d;
   font-size: 30px;
   padding: 0rem 0.5rem;
   margin: 20px;
   letter-spacing: 0.06em;
   position: relative;
   font-family: inherit;
-  border-radius: 0.6em;
+  border-radius: 10px;
   overflow: hidden;
   transition: all 0.3s;
   line-height: 1.4em;
   border: 2px solid var(--green);
   background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
   color: var(--green);
-  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+  box-shadow: inset 0 0 10px rgb(225, 224, 224), 0 0 9px 3px rgba(27, 253, 156, 0.1);
  }
  
- .btnCount:hover {
-  color: #82ffc9;
-  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
- }
+ .btnCountIncremento:hover {
+  background: #0e8b2d;
+  color: #fff;
+}
  
- .btnCount:before {
+ .btnCountIncremento:before {
   content: "";
   position: absolute;
   left: -4em;
@@ -195,9 +228,49 @@ p{
   background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%,rgba(27, 253, 156, 0.1) 60% , transparent 100%);
  }
 
- .btnCount:hover:before {
+ .btnCountIncremento:hover:before {
   transform: translateX(15em);
  }
+
+ .btnCountDecremento {
+  min-width: 40px;
+  --green: #c02121;
+  font-size: 30px;
+  padding: 0rem 0.5rem;
+  margin: 20px;
+  letter-spacing: 0.06em;
+  position: relative;
+  font-family: inherit;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+  line-height: 1.4em;
+  border: 2px solid var(--green);
+  background: linear-gradient(to right, rgba(235, 51, 51, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
+  color: var(--green);
+  box-shadow: inset 0 0 10px rgb(225, 224, 224), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+ }
+ 
+ .btnCountDecremento:hover {
+  background: #c02121;
+  color: #fff;
+}
+ 
+ .btnCountDecremento:before {
+  content: "";
+  position: absolute;
+  left: -4em;
+  width: 4em;
+  height: 100%;
+  top: 0;
+  transition: transform .4s ease-in-out;
+  background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%,rgba(27, 253, 156, 0.1) 60% , transparent 100%);
+ }
+
+ .btnCountDecremento:hover:before {
+  transform: translateX(15em);
+ }
+
 
  .lds-roller {
   display: flex;
@@ -295,29 +368,3 @@ p{
   color: rgb(23, 214, 55);
 }
 
-.gridDetalle{
-  display: grid;
-  grid-template-areas: 
-  "imgDetalle titleDetalle"
-  "imgDetalle descripcionDetalle"
-  "imgDetalle descripcionDetalle"
-  "imgDetalle precioDetalle";
-  grid-template-columns: repeat(2,1fr);
-  align-items: center;
-  margin: 20px;
-}
-
-.imgDetalle{
-  grid-area: imgDetalle;
-  width: 100%;
-}
-
-.titleDetalle{
-  grid-area: titleDetalle;
-}
-.descripcionDetalle{
-  grid-area: descripcionDetalle;
-}
-.precioDetalle{
-  grid-area: precioDetalle;
-}

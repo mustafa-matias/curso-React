@@ -1,33 +1,22 @@
-import ItemCount from "./ItemCount";
-import Swal from 'sweetalert2';
-
+import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const Item = ({ id, title, description, price, image }) => {
-  function onAddAlert(n){
-    Swal.fire({
-        position: 'top-end',
-        background: '#323232',
-        color: '#fff',            
-        icon: 'info',
-        title: n,
-        showConfirmButton: false,
-        timer: 1500
-        })
-    }
 
   return (
-        <div className="card bgNav">
-            <div className="card2 text-light">
-              <div className="d-flex justify-content-center">
-                <p> {id} </p>
-                <h3> {title} </h3>
-              </div>
-              <p>{description}</p>
-                <p> ${price} </p>
-                <img src={image} alt={title} width="100"/>
-              <ItemCount stock={5} initial={1} onAdd={onAddAlert}/>
-            </div>
-        </div>
+        <Card className="contenedorCard m-3"style={{ width: '18rem' }}>
+          <div className="contenedorImgCard">
+            <Card.Img variant="top" src={image} />
+          </div>
+          <Card.Body className="contenedorCuerpoCard">
+            <Card.Text>${price}</Card.Text>
+            <Card.Title>{title}</Card.Title>
+            <Link to={'/item/' + id}>
+              <Button variant="dark">Detail</Button>
+            </Link>
+          </Card.Body>
+    </Card>
   )
 }
 
