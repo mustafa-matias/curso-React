@@ -193,6 +193,20 @@ p{
   opacity: 4;
   right: 0;
  }
+
+ .btnIrCarrito{
+  margin: 0px auto;
+  text-decoration: none;
+ }
+
+ .btnIrCarrito:hover{
+  color: #fff;
+  transform: rotate(360deg) scale(1.5);
+  transition: 1s ease all;
+  border: 1px black solid;
+
+ }
+
 .btnCountIncremento {
   min-width: 40px;
   --green: #0e8b2d;

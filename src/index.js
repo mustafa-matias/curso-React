@@ -24,6 +24,7 @@ root.render(
           <Route path='/category/electronics' element={<ItemListConteinerElectronics greeting="Electronics"/>}/>
           <Route path='/category/jewelery' element={<ItemListConteinerJewelery greeting="Jewelery"/>}/>
           <Route path='/item/:id' element={<ItemDetailContainer />}/>
+          <Route path='/cart' element={""}/>
           <Route path='*' element={<ItemListConteiner greeting="Bienvenido a tu Store"/>}/>
         </Route>
       </Routes>

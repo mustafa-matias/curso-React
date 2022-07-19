@@ -1,19 +1,24 @@
+import React, {useState} from 'react';
+import { Link } from "react-router-dom";
 import ItemCount from './ItemCount';
 import Swal from 'sweetalert2';
 
 const ItemDetail = ( {item} ) => {
 
-function onAddAlert(n){
+const [cart, setCart] = useState(true);
+
+function handleOnAdd(n){
+    setCart(false);
     Swal.fire({
         position: 'top-end',
         background: '#323232',
         color: '#fff',            
         icon: 'info',
-        title: n,
+        title: `${n} ${item.title}!`,
         showConfirmButton: false,
         timer: 1500
         })
-    }
+}
 
 return (
     <div className="contenedorDetalle  ">
@@ -24,11 +29,12 @@ return (
                 <h3 className='fs-1'> {item.title} </h3>
                 <p className="descripcionDetalle fs-4">{item.description}</p>
                 <p className="precioDetalle fs-2"> ${item.price} </p>
-                <ItemCount stock={5} initial={1} onAdd={onAddAlert}/>
+                {cart ?
+                <ItemCount stock={item.rating.count} initial={1} onAdd={handleOnAdd}/> : 
+                <Link to="/cart" className="btnCarrito btnIrCarrito">IR A CARRITO</Link>
+                }
             </div>
-</div>
-
-)
+</div>)
 }
 
 export default ItemDetail
