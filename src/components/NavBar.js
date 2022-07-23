@@ -1,36 +1,47 @@
 import CartWidget from "./CartWidget";
-import { Link } from "react-router-dom";
+import {  NavLink} from "react-router-dom";
 
-const NavBar = () =>{
-    return (<nav className="navbar navbar-expand-lg navbar-dark bgNav borderNav"><div className="container-fluid">
-    <Link to='/' className="navbar-brand" >Store 🛍</Link>
+const NavBar = () => {
+  return (<nav className="navbar navbar-expand-lg navbar-dark bgNav borderNav"><div className="container-fluid">
+    <NavLink to='/' className="navbar-brand" >Store 🛍</NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
+      <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarColor02">
       <ul className="navbar-nav me-auto">
         <li className="nav-item">
-          <Link to="/" className="nav-link active linkNav">Home
+          <NavLink to="/" className={
+          ({isActive})=> isActive ? "nav-link text-light" : "nav-link"
+          }>Home
             <span className="visually-hidden">(current)</span>
-          </Link>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <Link to='/category/womensclothing' className="nav-link" >Women's Clothing</Link>
+          <NavLink to="/category/women's%20clothing" className={
+            ({isActive})=> isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
+          }>Women's Clothing</NavLink>
         </li>
         <li className="nav-item">
-          <Link to='/category/mensclothing' className="nav-link" >Men's Clothing</Link>
+          <NavLink to="/category/men's%20clothing" className={
+            ({isActive})=> isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
+          }>Men's Clothing</NavLink>
         </li>
         <li className="nav-item">
-          <Link to='/category/electronics' className="nav-link" >Electronics</Link>
+          <NavLink to='/category/electronics' className={
+            ({isActive})=> isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
+          }> Electronics</NavLink>
         </li>
         <li className="nav-item">
-          <Link to='/category/jewelery' className="nav-link" >Jewelery</Link>
+          <NavLink to='/category/jewelery' className={
+            ({isActive})=> isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
+          }> Jewelery</NavLink>
         </li>
       </ul>
     </div>
   </div>
-  <CartWidget/>
-</nav>
-);}
+    <CartWidget />
+  </nav>
+  );
+}
 
 export default NavBar
