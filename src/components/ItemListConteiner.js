@@ -5,8 +5,6 @@ import ItemList from "./ItemList";
 const ItemListConteiner = ({ greeting }) => {
 
     let params = useParams();
-    console.log(params);
-    console.log(params.idCategory);
 
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState();

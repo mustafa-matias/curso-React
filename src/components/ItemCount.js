@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import Item from './Item';
+import { CartContext } from './CartContext';
+import { useContext } from 'react';
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd, productoCarrito }) => {
+
+    const { addItem } = useContext(CartContext);
     const [count, setCount] = useState(initial);
 
     const incrementar = () => {
@@ -21,6 +24,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             <div>
                 <button onClick={() => {
                     onAdd(`Agregaste ${count}`);
+                    addItem(productoCarrito, count);
                 }}
                     className="btnCarrito" ><span>ADD</span></button>
             </div>

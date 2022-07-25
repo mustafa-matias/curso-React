@@ -6,22 +6,25 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import ItemListConteiner from './components/ItemListConteiner';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import { CartContextProvider } from './components/CartContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<ItemListConteiner greeting="BIENVENIDO STORE"/>}/>
-          <Route path='/category/:idCategory' element={<ItemListConteiner/>}/>
-          <Route path='/item/:id' element={<ItemDetailContainer />}/>
-          <Route path='/cart' element={""}/>
-          <Route path='*' element={<ItemListConteiner greeting="Bienvenido a tu Store" />}/>
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+  <CartContextProvider>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<ItemListConteiner greeting="BIENVENIDO STORE" />} />
+            <Route path='/category/:idCategory' element={<ItemListConteiner greeting="Seleccione su producto" />} />
+            <Route path='/item/:id' element={<ItemDetailContainer />} />
+            <Route path='/cart' element={""} />
+            <Route path='*' element={<ItemListConteiner greeting="Bienvenido a tu Store" />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
+  </CartContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
