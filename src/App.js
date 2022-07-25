@@ -10,8 +10,6 @@ function App() {
   const { productosAgregados } = useContext(CartContext);
   console.log(productosAgregados)
 
-
-
   return (
     <div className="App bgNav d-flex flex-column vh-100">
       <NavBar />
