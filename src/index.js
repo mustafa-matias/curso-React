@@ -6,7 +6,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import ItemListConteiner from './components/ItemListConteiner';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import { CartContextProvider } from './components/CartContext';
+import { CartContextProvider } from './context/CartContext';
+import Cart from './components/Cart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +19,7 @@ root.render(
             <Route index element={<ItemListConteiner greeting="BIENVENIDO STORE" />} />
             <Route path='/category/:idCategory' element={<ItemListConteiner greeting="Seleccione su producto" />} />
             <Route path='/item/:id' element={<ItemDetailContainer />} />
-            <Route path='/cart' element={""} />
+            <Route path='/cart' element={<Cart/>} />
             <Route path='*' element={<ItemListConteiner greeting="Bienvenido a tu Store" />} />
           </Route>
         </Routes>

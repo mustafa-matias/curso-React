@@ -12,7 +12,7 @@ const ItemListConteiner = ({ greeting }) => {
 
     useEffect(() => {
         setTimeout(() => {
-            if(params.idCategory){
+            if (params.idCategory) {
                 setLoading(true);
                 fetch(`https://fakestoreapi.com/products/category/${params.idCategory}`)
                     .then(res => res.json())
@@ -22,16 +22,16 @@ const ItemListConteiner = ({ greeting }) => {
                     }).finally(() => {
                         setLoading(false);
                     })
-                }else{
-                    setLoading(true);
-                    fetch(`https://fakestoreapi.com/products/`)
+            } else {
+                setLoading(true);
+                fetch(`https://fakestoreapi.com/products/`)
                     .then(res => res.json())
                     .then(json => setProducts(json))
                     .catch((error) => {
                         setErr("Ocurrio un error");
                     }).finally(() => {
                         setLoading(false);
-                })
+                    })
             }
         }, 2000)
     }, [params.idCategory]);

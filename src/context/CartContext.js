@@ -22,9 +22,24 @@ export const CartContextProvider = ({ children }) => {
         }
     }
 
-    return <CartContext.Provider value={{ productosAgregados, addItem }}>
+    const removeItem = (itemId) => {
+        setProductosAgregados(productosAgregados.filter((producto) => producto.id !== itemId));
+    }
+
+    const clearAll = () => {
+        setProductosAgregados([]);
+    }
+
+    const totalPrice = productosAgregados.reduce((acc, producto) => {
+        return acc + producto.price;
+    }, 0)
+
+    const cantidadItem = productosAgregados.reduce((acc, producto) => {
+        return acc + producto.cantidad;
+    }, 0)
+
+    return <CartContext.Provider value={{ productosAgregados, addItem, removeItem, clearAll, totalPrice, cantidadItem }}>
         {children}
     </CartContext.Provider>
-
 }
 

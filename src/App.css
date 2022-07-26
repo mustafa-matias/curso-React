@@ -12,6 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+body{
+  background-color: black;
+}
 
 .App-header {
   background-color: #282c34;
@@ -45,7 +48,7 @@ p {
 .cardWidget {
   background: linear-gradient(-45deg, #3f00b5, #9f69fe, #27c8b7, #3f00b5);
   background-size: 800% 400%;
-  margin: 5px 15px;
+  margin: 5px;
   padding: 0.5em 0.5em;
   display: inline-block;
   border: none;
@@ -65,6 +68,15 @@ p {
 .cardWidget:active {
   animation: gradient 3s infinite;
   transform: scale(0.8);
+}
+
+.btnContador{
+  background: #0e8b2d;
+  color:rgb(255, 255, 255);
+  font-weight: bold;
+  margin: 0px 5px 30px 0px;
+  padding: 0px 5px;
+  border-radius: 100px;
 }
 
 @keyframes gradient {
@@ -92,6 +104,7 @@ p {
   font-size: 20px;
   font-weight: bold;
   background-color: black;
+  width: 100%;
 }
 
 .bgNav {
@@ -128,10 +141,9 @@ p {
 }
 
 .itemList {
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  margin: auto;
+  grid-template-columns: repeat(4, 1fr);
+  margin-left: 40px;
 }
 
 .contenedorDetalle {
@@ -407,4 +419,34 @@ p {
 
 .links:hover {
   color: rgb(23, 214, 55);
+}
+
+.contenedorCart{
+  background-color: black;
+}
+
+.contenedorCartProducts{
+  display: grid;
+  background-color: aliceblue;
+}
+
+.contenedorCartProduct{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black
+
+}
+
+.contenedorImgCart{
+  width: 80%;
+}
+
+.pSinproductos{
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid black;
 }

@@ -1,5 +1,5 @@
 import CartWidget from "./CartWidget";
-import {  NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (<nav className="navbar navbar-expand-lg navbar-dark bgNav borderNav"><div className="container-fluid">
@@ -11,29 +11,29 @@ const NavBar = () => {
       <ul className="navbar-nav me-auto">
         <li className="nav-item">
           <NavLink to="/" className={
-          ({isActive})=> isActive ? "nav-link text-light" : "nav-link"
+            ({ isActive }) => isActive ? "nav-link text-light" : "nav-link"
           }>Home
             <span className="visually-hidden">(current)</span>
           </NavLink>
         </li>
         <li className="nav-item">
           <NavLink to="/category/women's%20clothing" className={
-            ({isActive})=> isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
+            ({ isActive }) => isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
           }>Women's Clothing</NavLink>
         </li>
         <li className="nav-item">
           <NavLink to="/category/men's%20clothing" className={
-            ({isActive})=> isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
+            ({ isActive }) => isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
           }>Men's Clothing</NavLink>
         </li>
         <li className="nav-item">
           <NavLink to='/category/electronics' className={
-            ({isActive})=> isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
+            ({ isActive }) => isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
           }> Electronics</NavLink>
         </li>
         <li className="nav-item">
           <NavLink to='/category/jewelery' className={
-            ({isActive})=> isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
+            ({ isActive }) => isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
           }> Jewelery</NavLink>
         </li>
       </ul>
