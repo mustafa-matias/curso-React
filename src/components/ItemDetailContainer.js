@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import { getProductById } from "./Firebase"
 
 const ItemDetailContainer = () => {
 
     let params = useParams();
     const [productoElegido, setProductoElegido] = useState();
     const [loading, setLoading] = useState(true);
-    const [err, setErr] = useState();
 
     useEffect(() => {
         setTimeout(() => {
-            fetch(`https://fakestoreapi.com/products/${params.id}`)
-                .then(res => res.json())
-                .then(json => setProductoElegido(json))
-                .catch((error) => {
-                    setErr("Ocurrio un error");
-                }).finally(() => {
-                    setLoading(false);
-                })
-        }, 2000)
+            getProductById(params.id).then((snapshot) =>
+                setProductoElegido({ id: params.id, ...snapshot.data() }));
+            setLoading(false);
+        }, 0)
     }, [params.id])
 
     return (

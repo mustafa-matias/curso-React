@@ -1,40 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getProducts } from "./Firebase";
 import ItemList from "./ItemList";
 
 const ItemListConteiner = ({ greeting }) => {
 
-    let params = useParams();
+    let { idCategory } = useParams();
 
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState();
-    const [err, setErr] = useState();
 
     useEffect(() => {
+        setLoading(true);
         setTimeout(() => {
-            if (params.idCategory) {
-                setLoading(true);
-                fetch(`https://fakestoreapi.com/products/category/${params.idCategory}`)
-                    .then(res => res.json())
-                    .then(json => setProducts(json))
-                    .catch((error) => {
-                        setErr("Ocurrio un error");
-                    }).finally(() => {
-                        setLoading(false);
-                    })
-            } else {
-                setLoading(true);
-                fetch(`https://fakestoreapi.com/products/`)
-                    .then(res => res.json())
-                    .then(json => setProducts(json))
-                    .catch((error) => {
-                        setErr("Ocurrio un error");
-                    }).finally(() => {
-                        setLoading(false);
-                    })
+            getProducts(idCategory).then((snapshot) => {
+                setProducts(
+                    snapshot.docs.map((doc) => {
+                        return { id: doc.id, ...doc.data() };
+                    }
+                    )
+                );
             }
+            )
+            setLoading(false);
         }, 2000)
-    }, [params.idCategory]);
+    }, [idCategory])
 
     return (
         <div className="ItemListConteiner">

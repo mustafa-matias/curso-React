@@ -17,12 +17,12 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/category/women's%20clothing" className={
+          <NavLink to="/category/women'sClothing" className={
             ({ isActive }) => isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
           }>Women's Clothing</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/category/men's%20clothing" className={
+          <NavLink to="/category/men'sClothing" className={
             ({ isActive }) => isActive ? "nav-link text-decoration-underline text-light" : "nav-link"
           }>Men's Clothing</NavLink>
         </li>
