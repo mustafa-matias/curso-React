@@ -2,6 +2,7 @@
 import { CartContext } from '../context/CartContext';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Form from './Form';
 
 const Cart = () => {
 
@@ -10,6 +11,7 @@ const Cart = () => {
     return (
         <div className='contenedorCart'>
             {productosAgregados.length > 0 ? (
+                <>
                 <div className='contenedorCartProducts bg-dark'>
                     <div className="border border-dark bg-dark text-light fw-bold d-flex justify-content-around text-center h10 align-item-center">
                         <p>IMAGE</p>
@@ -27,8 +29,11 @@ const Cart = () => {
                             <button className="btn btn-danger mx-5" onClick={() => { removeItem(producto.id) }}>Eliminar 🗑</button>
                         </div>))}
                     <p className="bg-dark text-light fw-bold d-flex justify-content-center m-2">Precio Total ${totalPrice.toFixed(2)}</p>
-                    <button className="btn btn-danger mx-5 mb-2" onClick={clearAll} >🗑 Limpiar todos 🗑</button>
-                </div>)
+                    <button className="btn btn-danger mx-auto mb-2  w-75" onClick={clearAll} >🗑 Limpiar todos 🗑</button>
+                </div>
+                <Form/>
+                </>
+                )
                 :
                 (
                     <>

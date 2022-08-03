@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc, getDocs, collection, query, where } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, getDocs, collection, query, where, addDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDiS9LFU4X42Zj-5q2e0uxbnG-mVoOd5nA",
@@ -15,7 +15,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const getProductById = async (idProduct) => {
-    return await getDoc(doc(db,"products",idProduct));
+    return await getDoc(doc(db, "products", idProduct));
 }
 
 export const getProductsByCategory = async (idCategory) => {
@@ -36,5 +36,15 @@ export const getProducts = async (idCategory) => {
     } else {
         return await getAllProductos();
     }
+}
+
+export const sendOrder =(nameOrder, email, phone, productoAgregados, precioTotal)=>{
+    const order = {
+        buyer: {name: {nameOrder}, phone: {phone}, email: {email}},
+        items: [{productoAgregados}],
+        total: {precioTotal},
+    };
+    const orderCollection = collection(db, "orders");
+    addDoc(orderCollection,order).then(({id})=>console.log(id));
 }
 

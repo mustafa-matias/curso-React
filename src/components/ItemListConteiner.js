@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts } from "./Firebase";
+import { getProducts } from "../services/Firebase";
 import ItemList from "./ItemList";
 
 const ItemListConteiner = ({ greeting }) => {

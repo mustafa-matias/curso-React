@@ -8,7 +8,7 @@ import ItemListConteiner from './components/ItemListConteiner';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { CartContextProvider } from './context/CartContext';
 import Cart from './components/Cart';
-import './components/Firebase';
+import './services/Firebase';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
