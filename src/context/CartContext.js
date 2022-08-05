@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react';
-import {AddOrder} from "../services/Firebase";
 
 export const CartContext = createContext();
 
@@ -32,7 +31,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const totalPrice = productosAgregados.reduce((acc, producto) => {
-        return (acc + producto.price).tofixed(2);
+        return (acc + producto.price);
     }, 0)
 
     const cantidadItem = productosAgregados.reduce((acc, producto) => {
