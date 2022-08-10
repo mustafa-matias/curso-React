@@ -9,6 +9,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import { CartContextProvider } from './context/CartContext';
 import Cart from './components/Cart';
 import './services/Firebase';
+import OrderDetailConteiner from './components/OrderDetailConteiner';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
             <Route path='/category/:idCategory' element={<ItemListConteiner greeting="Seleccione su producto" />} />
             <Route path='/item/:id' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/order/:id' element={<OrderDetailConteiner/>} />
             <Route path='*' element={<ItemListConteiner greeting="Bienvenido a tu Store" />} />
           </Route>
         </Routes>

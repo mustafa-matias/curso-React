@@ -5,6 +5,11 @@ export const CartContext = createContext();
 export const CartContextProvider = ({ children }) => {
 
     const [productosAgregados, setProductosAgregados] = useState([]);
+    const [idOrden, setIdOrden] = useState();
+    
+    const addIdOrden = (id) =>{
+        return setIdOrden(id);
+    }
 
     const addItem = async(item, quantity) => {
         const existe = productosAgregados?.some(producto => producto.id === item.id);
@@ -38,7 +43,7 @@ export const CartContextProvider = ({ children }) => {
         return acc + producto.cantidad;
     }, 0)
 
-    return <CartContext.Provider value={{ productosAgregados, addItem, removeItem, clearAll, totalPrice, cantidadItem }}>
+    return <CartContext.Provider value={{addIdOrden, idOrden, productosAgregados, addItem, removeItem, clearAll, totalPrice, cantidadItem }}>
         {children}
     </CartContext.Provider>
 }

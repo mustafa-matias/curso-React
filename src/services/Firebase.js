@@ -14,6 +14,7 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
+
 export const getProductById = async (idProduct) => {
     return await getDoc(doc(db, "products", idProduct));
 }
@@ -39,12 +40,20 @@ export const getProducts = async (idCategory) => {
 }
 
 export const sendOrder =(nameOrder, email, phone, productoAgregados, precioTotal)=>{
+    
     const order = {
         buyer: {name: {nameOrder}, phone: {phone}, email: {email}},
         items: [{productoAgregados}],
         total: {precioTotal},
     };
     const orderCollection = collection(db, "orders");
-    addDoc(orderCollection,order).then(({id})=>console.log(id));
+    return addDoc(orderCollection,order)
 }
+
+export const getOrderById = async (idOrder) => {
+    return await getDoc(doc(db, "orders", idOrder));
+}
+
+
+
 

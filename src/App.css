@@ -446,10 +446,17 @@ p {
   width: 80%;
 }
 
-.pSinproductos{
+.pSinProductos{
   height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border: 2px solid black;
+}
+
+.contenedorOrderDetail{
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid white;
+  width: 60%;
 }

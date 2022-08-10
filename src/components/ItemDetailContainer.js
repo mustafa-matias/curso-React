@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
             getProductById(params.id).then((snapshot) =>
                 setProductoElegido({ id: params.id, ...snapshot.data() }));
             setLoading(false);
-        }, 0)
+        }, 2000)
     }, [params.id])
 
     return (
