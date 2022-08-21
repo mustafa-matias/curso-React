@@ -23,14 +23,14 @@ const ItemCount = ({ stock, initial, onAdd, productoCarrito }) => {
             </div>
             <div>
                 <button onClick={() => {
-                    onAdd(`Agregaste ${count}`);
+                    onAdd(`${count}`);
                     addItem(productoCarrito, count);
                 }}
                     className="btnCarrito" ><span>ADD</span></button>
             </div>
             <div>
                 <span className='fst-italic'>
-                    Quedan disponibles <b>{stock - count}</b> unidades!
+                    <b>{stock - count}</b> amount available!
                 </span>
             </div>
         </div>);

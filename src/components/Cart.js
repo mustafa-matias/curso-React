@@ -16,9 +16,9 @@ const Cart = () => {
                         <div className="border border-dark bg-dark text-light fw-bold d-flex justify-content-around text-center h10 align-item-center">
                             <p>IMAGE</p>
                             <p>TITLE</p>
-                            <p>CANTIDAD</p>
+                            <p>TOTAL</p>
                             <p>PRICE</p>
-                            <p>ELIMINAR</p>
+                            <p>REMOVE</p>
                         </div>
                         {productosAgregados.map((producto) => (
                             <div key={producto.id} className="text-dark bg-light contenedorCartProduct">
@@ -26,10 +26,10 @@ const Cart = () => {
                                 <p className='mx-3'>{producto.title}</p>
                                 <p>{producto.cantidad}</p>
                                 <p>${producto.price.toFixed(2)}</p>
-                                <button className="btn btn-danger mx-5" onClick={() => { removeItem(producto.id) }}>Eliminar 🗑</button>
+                                <button className="btn btn-danger mx-5" onClick={() => { removeItem(producto.id) }}>Remove 🗑</button>
                             </div>))}
-                        <p className="bg-dark text-light fw-bold d-flex justify-content-center m-2">Precio Total ${totalPrice.toFixed(2)}</p>
-                        <button className="btn btn-danger mx-auto mb-2  w-75" onClick={clearAll} >🗑 Limpiar todos 🗑</button>
+                        <p className="bg-dark text-light fw-bold d-flex justify-content-center m-2">Total ${totalPrice.toFixed(2)}</p>
+                        <button className="btn btn-danger mx-auto mb-2  w-75" onClick={clearAll} >🗑 Clean All 🗑</button>
                     </div>
                     <Form/>
                 </>

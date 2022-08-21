@@ -31,7 +31,7 @@ const ItemDetail = ({ item }) => {
                 <p className="precioDetalle fs-2"> ${item.price} </p>
                 {cart ?
                     <ItemCount stock={item.count} initial={1} onAdd={handleOnAdd} productoCarrito={item} />
-                    : <Link to="/cart" className="btnCarrito btnIrCarrito">IR A CARRITO</Link>
+                    : <Link to="/cart" className="btnCarrito btnIrCarrito">Your cart</Link>
                 }
             </div>
         </div>)

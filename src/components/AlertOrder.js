@@ -6,7 +6,7 @@ const AlertOrder = () => {
             background: '#323232',
             color: '#fff',
             icon: 'info',
-            title: `Compra realizada de forma correcta.`,
+            title: `Successfully purchased.`,
             showConfirmButton: false,
             timer: 1500
         })

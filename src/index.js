@@ -18,12 +18,12 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route index element={<ItemListConteiner greeting="BIENVENIDO STORE" />} />
-            <Route path='/category/:idCategory' element={<ItemListConteiner greeting="Seleccione su producto" />} />
+            <Route index element={<ItemListConteiner greeting="Welcome to your store" />} />
+            <Route path='/category/:idCategory' element={<ItemListConteiner greeting="Select your product" />} />
             <Route path='/item/:id' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/order/:id' element={<OrderDetailConteiner/>} />
-            <Route path='*' element={<ItemListConteiner greeting="Bienvenido a tu Store" />} />
+            <Route path='*' element={<ItemListConteiner greeting="Welcome to your store" />} />
           </Route>
         </Routes>
       </BrowserRouter>

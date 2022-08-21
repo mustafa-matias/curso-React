@@ -4,11 +4,14 @@
 2. Ropa de mujer.
 3. Electrónica.
 4. Joyas.
-Dichos prodructos son pedidos a la API https://fakestoreapi.com/
+
+Dichos prodructos son pedidos desde FireBase.
 
 ### Dependencias instaladas en el proyecto.
 1. Para facilitar estilos: bootstrap y react-bootstrap.
 2. Para facilitar alertas: sweetalert2.
-3. Para trabajar en las rutas del sitio wweb: react-router-dom.
+3. Para trabajar en las rutas del sitio web: react-router-dom.
 
-Las descisiones tomadas son consecuencia del cumplimiento de los distintos desafios parciales a entregar.
+Las descisiones tomadas son consecuencia del cumplimiento de los distintos desafios parciales a entregar del curso de Coder House.
+
+### La aplicación web se encuentra subida a Github.
